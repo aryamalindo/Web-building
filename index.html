@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bosoku | Stroke Order</title>
+  <link rel="icon" href="https://bosoku.com/uploads/website-images/favicon-2025-09-09-07-16-50-7916.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+</head>
+
+<body data-theme="light">
+  <div class="top">
+    <div class="top-inner">
+      <div class="brand">
+        <div>
+          <!--<h1>BOSOKU STROKE ORDER</h1>-->
+          <div id="light-logo"><a href="https://www.bosoku.com"><img src="BOSOKU-DARK.png" style="display: block;" height="55px" width="100%"></a></div>
+          <div id="dark-logo"><a href="https://www.bosoku.com"><img src="BOSOKU-LIGHT.png" style="display: none;" height="55px" width="100%"></a></div>
+          <p id="ui-sub" style="padding-left: 25px; margin-top: -5px;">Stroke order • Dictionary</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="pill active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="pill" id="btn-id" onclick="setLang('id')">ID</button>
+        <button class="pill" id="btn-zh" onclick="setLang('zh')">中文</button>
+        <button class="pill" onclick="toggleTheme()">🌓 <span id="ui-theme">Theme</span></button>
+      </div>
+    </div>
+    <div class="search-row">
+      <div class="search">
+        <input id="main-search" type="text" maxlength="1" placeholder="Search character...">
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="card">
+      <div class="head">
+        <div>
+          <h3 id="ui-stroke-title">Stroke Order Animation</h3>
+          <!--<p id="ui-stroke-sub">Visual guidance for writing</p>-->
+        </div>
+        <div class="btns">
+          <button class="btn primary" onclick="playAnim()" id="ui-play">Play</button>
+          <button class="btn" onclick="replayAnim()" id="ui-replay" style="display: none;">Replay</button>
+          <button class="btn" onclick="handlePause()" id="pause-btn">Pause</button>
+        </div>
+      </div>
+      <div class="body">
+        <div class="tianzige-wrap">
+          <div class="tianzige">
+            <div class="grid-line h-mid"></div>
+            <div class="grid-line v-mid"></div>
+            <svg class="grid-svg" viewBox="0 0 100 100">
+              <line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" style="opacity:0.2" stroke-dasharray="4" />
+              <line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" style="opacity:0.2" stroke-dasharray="4" />
+            </svg>
+            <div id="writer-target"></div>
+          </div>
+        </div>
+
+        <div class="speed-box">
+          <label id="ui-speed">Speed</label>: <span id="speed-val">1.0</span>x
+          <input type="range" id="speed-slider" min="0.4" max="3" step="0.1" value="1" style="width:100%;">
+        </div>
+
+        <div class="section">
+          <h4 id="ui-step-title">Step-by-Step Progression</h4>
+          <div class="strip" id="steps-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="head">
+        <h3 id="ui-vocab-title">Vocabulary</h3>
+      </div>
+      <!--<div class="body" id="vocab-content">
+        <p style="color:var(--muted); font-size:13px;">Search a character to see common words.</p>
+      </div>-->
+    </div>
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>
